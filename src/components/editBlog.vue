@@ -22,6 +22,9 @@
     methods: {
       onSave(mv,hv,theme) {
         console.log(mv,hv,theme)
+      },
+      save(a){
+        console.log(a)
       }
     },
     components: {
