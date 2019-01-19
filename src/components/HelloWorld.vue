@@ -1,50 +1,51 @@
 <template>
- <div>
-   <div id="main">
-     <!--<mavon-editor style="height: 1000px" :ishljs="true" v-model="value"/>-->
-   </div>
-   <div>
-     <mark-down/>
-   </div>
- </div>
+  <div id="app">
+    <div class="container">
+      <markdown @on-save="save" theme="OneDark" :initialValue="initialValue"></markdown>
+    </div>
+  </div>
 </template>
 
 <script>
-  import MarkDown from 'vue-meditor'
-
+  import axios from 'axios'
   export default {
     name: 'HelloWorld',
-    components:{
-      MarkDown
-    },
     data() {
       return {
-        msg: 'Welcome to Your Vue.js App'
+        initialValue: ""
+      };
+    },
+    methods: {
+      save(res) {
+        console.log(res)
+
+      },
+      saveNote(){
+//        axios.get('192.168.0.117:8080/blog/save', {
+//          params: {
+//            content: '宝宝吃屎'
+//          },
+//          withCredentials: false,
+//        }).then(res => {
+//          console.log(res)
+//        })
+      this.$post('/blog/save',{
+          content:'宝宝吃屎'
+      }).then((res)=>{
+          console.log(res)
+      })
       }
+    },
+    mounted() {
+      this.saveNote()
     }
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  blockquote{
-    border: 5px solid red;
-  }
-  h1, h2 {
-    font-weight: normal;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  a {
-    color: #42b983;
+  .container {
+    margin: 20px auto;
+    border: 1px solid #ccc;
   }
 </style>
