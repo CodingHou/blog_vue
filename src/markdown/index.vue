@@ -1,5 +1,5 @@
 <template lang="html">
-  <div :class="isFullscreen?'markdown fullscreen':'markdown' " ref="markdown" :style="{height:`${editorHeight}px`}" @mouseover="addListener" @mouseout="removeListener">
+  <div :class="isFullscreen?'markdown fullscreen':'markdown' " ref="markdown" :style="{height:`${editorHeight}vh`}" @mouseover="addListener" @mouseout="removeListener">
     <!-- 头部工具栏 -->
     <ul class="markdown-toolbars">
       <li class="title" v-if="title" :style="{titleStyle}">{{title}}</li>
