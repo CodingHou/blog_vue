@@ -33,6 +33,7 @@
   }
 
   .head {
+    background: white;
     height: 50px;
     width: 100vw;
     border-bottom: 1px solid #dcdcdc;
