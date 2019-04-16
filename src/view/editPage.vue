@@ -11,7 +11,8 @@
 
     <!--markdown输入域-->
     <div class="container">
-      <markdown ref="markdown" class="markdown-input" @on-save="save" theme="OneDark" :initialValue="initialValue"></markdown>
+      <markdown ref="markdown" class="markdown-input" @on-save="save" theme="OneDark"
+                :initialValue="initialValue"></markdown>
       <button class="save-markdown" @click="$refs.markdown.handleSave()">保存</button>
       <button class="cancel-markdown">取消</button>
     </div>
@@ -21,6 +22,7 @@
 
 <script>
   import axios from 'axios'
+
   export default {
     name: 'HelloWorld',
     data() {
@@ -37,7 +39,7 @@
       },
 
 //      保存或更新接口
-      saveNote(htmlValue, markdownValue){
+      saveNote(htmlValue, markdownValue) {
 //          noteid存在则调用更新接口，否则视为不存在，调用保存接口
         let id = this.noteId
         if (id) {
