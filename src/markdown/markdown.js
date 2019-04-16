@@ -281,6 +281,7 @@ export default {
       this.insertContent('\n[插入链接](https://github.com/coinsuper)');
     },
     insertImage() { // 插入图片
+
       this.insertContent('\n![image](https://noticejs.oss-cn-hangzhou.aliyuncs.com/%E6%9C%AA%E6%A0%87%E9%A2%98-3.jpg)');
     },
     insertTable() { // 插入表格

@@ -54,8 +54,9 @@
       <li v-if="tools.link" name="链接">
         <span @click="insertLink" class="iconfont icon-link"></span>
       </li>
-      <li v-if="tools.image" name="图片">
-        <span @click="insertImage" class="iconfont icon-img"></span>
+      <li v-if="tools.image" name="图片" class="import-file">
+        <span class="iconfont icon-img"></span>
+        <input type="file" @change="insertImage($event)">
       </li>
       <li v-if="tools.table" name="表格">
         <span @click="insertTable" class="iconfont icon-table"></span>

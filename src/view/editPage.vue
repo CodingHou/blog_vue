@@ -1,14 +1,7 @@
 <template>
   <div>
-    <!--&lt;!&ndash;头部&ndash;&gt;-->
-    <!--<div class="head">-->
-      <!--<span>blog</span>-->
-      <!--&lt;!&ndash;搜索框&ndash;&gt;-->
-      <!--<div>-->
-        <!--<input class="head-search" type="text">-->
-      <!--</div>-->
-    <!--</div>-->
-
+    <input class="title-label title-input" type="text" placeholder="标题" v-model="title">
+    <input class="title-label label-input" type="text" placeholder="标签" v-model="label">
     <!--markdown输入域-->
     <div class="container">
       <markdown ref="markdown" class="markdown-input" @on-save="save" theme="OneDark"
@@ -28,6 +21,8 @@
     data() {
       return {
         initialValue: "",
+        title: '',
+        label: '',
         noteId: null
       };
     },
@@ -46,6 +41,8 @@
 //            更新
           this.$post('/blog/update', {
             id: id,
+            title: this.title,
+            label: this.label,
             htmlValue: htmlValue,
             markdownValue: markdownValue
           }).then((res) => {
@@ -54,6 +51,8 @@
         } else {
 //            保存
           this.$post('/blog/save', {
+            title: this.title,
+            label: this.label,
             htmlValue: htmlValue,
             markdownValue: markdownValue
           }).then((res) => {
@@ -70,35 +69,37 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .head {
-    height: 50px;
-    width: 100vw;
-    border-bottom: 1px solid #dcdcdc;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    position: fixed;
-    top: 0;
-  }
-
-  .head-search {
-    height: 30px;
-    line-height: 30px;
+  .title-label {
     box-sizing: border-box;
     padding: 0 15px 0 30px;
     border: 1px solid #e3e3e3;
     color: #2c3e50;
     outline: none;
-    border-radius: 15px;
-    margin-right: 10px;
     transition: border-color 0.2s ease;
-    background: #fff url(../assets/search.png) 8px 5px no-repeat;
     background-size: 20px;
     vertical-align: middle !important;
+    margin: 10px 65px;
   }
 
-  .head-search:focus {
+  .title-input {
+    width: 90%;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+  }
+
+  .label-input {
+    width: 90%;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+  }
+
+  input::-webkit-input-placeholder {
+    color: #d0d1d4;
+  }
+
+  .title-label:focus {
     border-color: #42b983;
   }
 
