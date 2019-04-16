@@ -1,13 +1,13 @@
 <template>
   <div>
-    <!--头部-->
-    <div class="head">
-      <span>blog</span>
-      <!--搜索框-->
-      <div>
-        <input class="head-search" type="text">
-      </div>
-    </div>
+    <!--&lt;!&ndash;头部&ndash;&gt;-->
+    <!--<div class="head">-->
+      <!--<span>blog</span>-->
+      <!--&lt;!&ndash;搜索框&ndash;&gt;-->
+      <!--<div>-->
+        <!--<input class="head-search" type="text">-->
+      <!--</div>-->
+    <!--</div>-->
 
     <!--markdown输入域-->
     <div class="container">
